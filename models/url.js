@@ -1,6 +1,6 @@
 const { model } = require("mongoose")
 
-const mongoose = required('mongoose')
+const mongoose = require('mongoose')
 
 const urlSchema = new mongoose.Schema({
     shortId: {
