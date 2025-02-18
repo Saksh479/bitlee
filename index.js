@@ -1,6 +1,6 @@
 const express = require("express");
 const urlRoute = require("./routes/url");
-const mongooseConnectionHandler = require("./connect");
+const mongooseConnectionHandler = require("./connect.js");
 const URL = require("./models/url");
 const app = express();
 app.use(express.urlencoded({ extended: true }));
