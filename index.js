@@ -1,7 +1,8 @@
-const express = require('express')
+const express = require("express");
+const urlRoute = require("./routes/url");
+const {mongooseConnectionHandler} = require('./connect')
+const app = express();
+const port = 8001;
+app.use("/url", urlRoute);
 
-const app = express()
-const port = 8001
-
-
-app.listen(port, ()=>console.log(`App listening at ${port}`))
+app.listen(port, () => console.log(`App listening at ${port}`));
