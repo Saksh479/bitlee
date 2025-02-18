@@ -1,6 +1,6 @@
 const express = require('express');
-const handleGenerateShortUrl = require('../controllers/url');
-const handleGetAnalytics = require('../controllers/url');
+const {handleGenerateShortUrl} = require('../controllers/url');
+const {handleGetAnalytics} = require('../controllers/url');
 const router = express.Router()
 
 
@@ -12,7 +12,7 @@ router.post('/',handleGenerateShortUrl)
 router.get('/analytics/:shortId',async (req,res)=>{
     const shortId = req.params.shortId
     const clicks = await handleGetAnalytics(shortId)
-    res.send(`Number of clicks: ${clicks}`)
+    res.json({clicks})
 })
 
 module.exports = router

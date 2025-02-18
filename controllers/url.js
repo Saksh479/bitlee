@@ -12,9 +12,10 @@ async function handleGenerateShortUrl(req,res){
         redirectId: redirectUrl,
         visitHistory: []
     })
-    return res.json({id: shortUrl})
+    
+    return res.json({ id: shortUrl, link: `http://localhost:8001/${shortUrl}` });
 }
-module.exports = handleGenerateShortUrl
+
 
 async function handleGetAnalytics(shortId){
     const result = await URL.findOne({shortId: shortId})
@@ -22,4 +23,4 @@ async function handleGetAnalytics(shortId){
     return clicks;
 }
 
-module.exports = handleGetAnalytics
+module.exports = { handleGenerateShortUrl, handleGetAnalytics };
