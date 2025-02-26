@@ -1,14 +1,20 @@
 const express = require("express");
 const urlRoute = require("./routes/url");
+const path = require('path');
 const mongooseConnectionHandler = require("./connect.js");
-const URL = require("./models/url");
+const URL = require("./models/url"); 
 const app = express();
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 const port = 8001;
 mongooseConnectionHandler("mongodb://127.0.0.1:27017/URLs").then(
   console.log("Mongo DB connected")
 );
 app.use("/url", urlRoute);
+app.get('/home',(req,res)=>{
+  res.render('home')
+})
 app.get("/:shortId", async (req, res) => {
   const shortId = req.params.shortId;
   const entry = await URL.findOneAndUpdate(
