@@ -14,7 +14,7 @@
     </form>
     <ol>
         <% allUrls.forEach(url => { %>
-         <li><a href=''><%=url.shortId%> : <%= url.redirectId %> %></a></li>
+         <li><%= url.redirectId %> : <a href=''> http://localhost:8001/<%=url.shortId%>   %></a></li>
         <% }) %>
     </ol>
 </body>
