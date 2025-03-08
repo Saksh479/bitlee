@@ -13,7 +13,7 @@ async function handleGenerateShortUrl(req,res){
         visitHistory: []
     })
     
-    return res.json({ id: shortUrl, link: `http://localhost:8001/${shortUrl}` });
+    return res.send( `Your Link is : http://localhost:8001/${shortUrl}`);
 }
 
 

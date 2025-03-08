@@ -14,5 +14,4 @@ router.get('/analytics/:shortId',async (req,res)=>{
     const clicks = await handleGetAnalytics(shortId)
     res.json({link:`localhost:8001/${shortId}` , clicks: clicks})
 })
-
 module.exports = router

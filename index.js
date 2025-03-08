@@ -12,8 +12,11 @@ mongooseConnectionHandler("mongodb://127.0.0.1:27017/URLs").then(
   console.log("Mongo DB connected")
 );
 app.use("/url", urlRoute);
-app.get('/home',(req,res)=>{
-  res.render('home')
+app.get('/',async(req,res)=>{
+  const allUrls = await URL.find({}) 
+  res.render('home',{
+    allUrls
+  })
 })
 app.get("/:shortId", async (req, res) => {
   const shortId = req.params.shortId;

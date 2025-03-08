@@ -7,5 +7,15 @@
 </head>
 <body>
     <h1>Welcome to BitLee</h1>
+    <form  method="POST" action="/url">
+        <label for="redirectUrl">URL</label>
+        <input id="redirectUrl" name="url" type="text">
+        <button type="submit">Submit</button>
+    </form>
+    <ol>
+        <% allUrls.forEach(url => { %>
+         <li><a href=''><%=url.shortId%> : <%= url.redirectId %> %></a></li>
+        <% }) %>
+    </ol>
 </body>
 </html>
