@@ -1,3 +1,5 @@
+const User = require('../models/user')
+
 async function handleUserSignup (req,res){
     const {name,email,password} = req.body
     const userInfo = await User.create({
@@ -5,5 +7,7 @@ async function handleUserSignup (req,res){
         email,
         password
     })
-    return res.json(userInfo)
+    return res.render('home')
 }
+
+module.exports = {handleUserSignup}

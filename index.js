@@ -6,12 +6,14 @@ const URL = require("./models/url");
 const app = express();
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 const port = 8001;
 mongooseConnectionHandler("mongodb://127.0.0.1:27017/URLs").then(
   console.log("Mongo DB connected")
 );
 app.use("/url", urlRoute);
+app.use('/user', userRoute)
 app.get('/',async(req,res)=>{
   const allUrls = await URL.find({}) 
   res.render('home',{

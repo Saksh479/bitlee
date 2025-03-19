@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Home Page</title>
 </head>
 <body>
@@ -12,10 +13,13 @@
         <input id="redirectUrl" name="url" type="text">
         <button type="submit">Submit</button>
     </form>
-    <ol>
-        <% allUrls.forEach(url => { %>
-         <li><%= url.redirectId %> : <a href='http://localhost:8001/<%=url.shortId%>'> http://localhost:8001/<%=url.shortId%>   %></a> - <a href="http://localhost:8001/url/analytics/<%=url.shortId%>">[analytics]</a></li>
-        <% }) %>
-    </ol>
+    <div>
+        <h1>Your Links</h2>
+        <ol>
+            <% allUrls.forEach(url => { %>
+            <li><%= url.redirectId %> : <a href='http://localhost:8001/<%=url.shortId%>'> <%=url.shortId%>   %></a> - <a href="http://localhost:8001/url/analytics/<%=url.shortId%>">[analytics]</a></li>
+            <% }) %>
+        </ol>
+    </div>
 </body>
 </html>
