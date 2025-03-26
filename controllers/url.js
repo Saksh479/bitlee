@@ -10,10 +10,12 @@ async function handleGenerateShortUrl(req,res){
     await URL.create({
         shortId: shortUrl,
         redirectId: redirectUrl,
-        visitHistory: []
+        visitHistory: [],
+        createdBy: req.user._id
     })
-    
-    return res.json({ id: shortUrl, link: `http://localhost:8001/${shortUrl}` });
+    const id = shortUrl
+    const link = `http://localhost:8000/${shortUrl}`
+    return res.render('output' , {id, link})
 }
 
 

@@ -7,6 +7,20 @@
     <title>Home Page</title>
 </head>
 <body>
+    <div class="header">
+        <a href="#default" class="logo">BitLee</a>
+        <div class="header-right">
+          
+          <% if (!user) { %>
+            <a href="http://localhost:8000/signup">Signup</a>
+            <a href="http://localhost:8000/login">Login</a>
+          <% } else { %>
+            <a href="">Hello, <b><%=user.name%></b></a>
+            <a href="http://localhost:8000/signup">Sign-Up</a>
+           <a href="/logout">Logout</a>
+           <% } %>
+        </div>
+      </div>
     <h1>Welcome to BitLee</h1>
     <form  method="POST" action="/url">
         <label for="redirectUrl">URL</label>
@@ -17,7 +31,7 @@
         <h1>Your Links</h2>
         <ol>
             <% allUrls.forEach(url => { %>
-            <li><%= url.redirectId %> : <a href='http://localhost:8001/<%=url.shortId%>'> <%=url.shortId%>   %></a> - <a href="http://localhost:8001/url/analytics/<%=url.shortId%>">[analytics]</a></li>
+            <li><%= url.redirectId %> : <a href='http://localhost:8000/<%=url.shortId%>'> <%=url.shortId%>   %></a> - <a href="http://localhost:8000/url/analytics/<%=url.shortId%>">[analytics]</a></li>
             <% }) %>
         </ol>
     </div>

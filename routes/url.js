@@ -12,6 +12,6 @@ router.post('/',handleGenerateShortUrl)
 router.get('/analytics/:shortId',async (req,res)=>{
     const shortId = req.params.shortId
     const clicks = await handleGetAnalytics(shortId)
-    res.json({link:`localhost:8001/${shortId}` , clicks: clicks})
+    res.json({link:`localhost:8000/${shortId}` , clicks: clicks})
 })
 module.exports = router
